@@ -1,6 +1,5 @@
-let mapleader=" "		" 将LEADER键（\）赋给空格键
-" 普通模式时更改功能键（将前面的键改成后面的功能键）
-noremap <LEADER><CR> :nohlsearch<CR>
+let mapleader=" "		""Assign the LEADER key () to the space bar key."
+"Change the function keys during normal mode (replace the key in front with the corresponding function key)."noremap <LEADER><CR> :nohlsearch<CR>
 noremap j h
 noremap J 5h
 noremap i k
@@ -26,7 +25,7 @@ let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 set laststatus=2
 set autochdir
-set clipboard=unnamedplus 	"共享剪切版
+set clipboard=unnamedplus 	"share clipboard
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 map S :w!<CR>
@@ -45,9 +44,9 @@ map sj :set nosplitright<CR>:vsplit<CR>
 map si :set nosplitbelow<CR>:split<CR>
 map sk :set splitbelow<CR>:split<CR>
 
-" 使用firefox浏览器
+" use firefox
 let g:mkdp_brower = 'firefox'
-" Ctrl + p 打开/关闭预览
+" Ctrl + p "Open/Close preview."
 map r :MarkdownPreviewToggle<CR>
 
 map <LEADER>j <C-w>h	
@@ -67,44 +66,41 @@ map sv <C-w>t<C-w>H
 map sh <C-w>t<C-w>K
 
 
-set nocompatible        " 去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限
-set number			    " 显示行号
-filetype on			    " 检测文件的类型
-" set relativenumber		" 突出当前行号
-set history=1000	    " 记录历史的行数
-set background=dark     " 背景使用黑色
-syntax on			    " 语法高亮度显示
-set autoindent		    " 自动缩进
-set smartindent		    " 智能对齐
-set tabstop=4		    " 设置tab键为4个空格
-set shiftwidth=4	    " 当行之间交错时使用4个空格
-set guioptions=T	    " 去除vim的GUI版本中的toolbar
-set vb t_vb=		    " 当vim进行编辑时，如果命令错误，会发出一个响声，该设置去掉响声
-set cindent             "使用C样式的缩进
-set ruler			    " 打开状态栏标尺
-set cursorline          " 为光标所在行加下划线
-set hlsearch            " 搜索时高亮显示被找到的文本
-" 重新载入时不显示之前搜索结果
-exec "nohlsearch"
-set incsearch           " 输入搜索内容时就显示搜索结果
-set nowrapscan          " 禁止在搜索到文件两端时重新搜索
-set ignorecase          " 检索时忽略大小写
-set smartcase			" 智能大小写
+set nocompatible       
+set number			    
+filetype on			    
+" set relativenumber		
+set history=1000	    
+set background=dark     
+syntax on			    
+set autoindent		     
+set smartindent		    
+set tabstop=4		     
+set shiftwidth=4	     
+set guioptions=T	     
+set vb t_vb=		     
+set cindent              
+set ruler			     
+set cursorline          
+set hlsearch              
+ exec "nohlsearch"
+set incsearch           
+set nowrapscan          
+set ignorecase          
+set smartcase			 
 
-" 重新进入时不显示之前搜索结果
-exec "nohlsearch"
+ exec "nohlsearch"
 
-set nobackup			" 不自动备份
-set noswapfile		 	" 设置不产生临时文件
-set showcmd         	" 输入的命令显示出来，看的清楚些 
-set wrap 				" 字体不会超出窗口
-set wildmenu			" 命令模式时Tab键补齐
-set shortmess=atI   	" 启动的时候不显示那个援助乌干达儿童的提示 
-autocmd InsertLeave * se nocul  	" 用浅色高亮当前行
-autocmd InsertEnter * se cul    	" 用浅色高亮当前行
+set nobackup			 
+set noswapfile		 	 
+set showcmd         	  
+set wrap 				 
+set wildmenu			 
+set shortmess=atI   	 
+autocmd InsertLeave * se nocul  	 
+autocmd InsertEnter * se cul    	 
 set autoread
 
-" 定义保存编译并执行代码函数
 func! ComplieCode1()
 exec "w"
 if &filetype == "c"
@@ -144,23 +140,19 @@ map <C-b> :call OnlyExit()<CR>
 imap <C-b> <ESC> :call Exit()<CR>
 vmap <C-b> <ESC> :call Exit()<CR>
 
-" 映射Ctrl+x键调用gcc编译并执行函数
-map <C-x> :call ComplieCode1()<CR>
+ map <C-x> :call ComplieCode1()<CR>
 imap <C-x> <ESC>:call ComplieCode1()<CR>
 vmap <C-x> <ESC>:call ComplieCode1()<CR>
 
-" 映射Ctrl+p键调用clang编译并执行函数
-map <C-p> :call ComplieCode2()<CR>
+ map <C-p> :call ComplieCode2()<CR>
 imap <C-p> <ESC>:call ComplieCode2()<CR>
 vmap <C-p> <ESC>:call ComplieCode2()<CR>
 
-" 映射Ctrl+l键执行shell脚本
-map <C-l> :call ComplieCode3()<CR>
+ map <C-l> :call ComplieCode3()<CR>
 imap <C-l> <ESC>:call ComplieCode3()<CR>
 vmap <C-l> <ESC>:call ComplieCode3()<CR>
 
-" 映射Ctrl+z键保存并退出
-map <C-z> :wq!<CR>
+ map <C-z> :wq!<CR>
 imap <C-z> <ESC>:wq!<CR>
 vmap <C-z> <ESC>:wq!<CR>
 
